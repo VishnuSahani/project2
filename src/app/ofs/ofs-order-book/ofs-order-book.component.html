@@ -1,0 +1,66 @@
+<div class="orderbook-details">
+  <ng-container *ngFor="let openOfsItem of ofsOrderList; let i = index">
+    <div class="expandable-card">
+      <div class="expandable-card-header">
+        <div class="exp-header-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+            alt="">
+        </div>
+        <div class="ofs-name-date">
+          <span class="ofs-name">
+            {{openOfsItem.name}}
+          </span>
+        </div>
+        <div class="header-right">
+        </div>
+      </div>
+      <div class="expandable-card-body">
+        <div class="ofs-info-container">
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">Bid ID</span>
+            <span class="ofs-info-value">
+              {{openOfsItem.bidId}}
+            </span>
+          </div>
+
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">Qty</span>
+            <span class="ofs-info-value">
+              <!-- {{openOfsItem.qty | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">Price</span>
+            <span class="ofs-info-value">
+              <!-- {{openOfsItem.price | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">Value</span>
+            <span class="ofs-info-value">
+              <!-- ₹ {{openOfsItem.value | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">UPI ID</span>
+            <span class="ofs-info-value">
+              {{openOfsItem.upiId}}
+            </span>
+          </div>
+
+          <div class="ofs-info-item">
+            <span class="ofs-info-label">
+              <button class="btn-modify" (click)="modifyOrder(openOfsItem)">Modify</button>
+              <button class="btn-cancel" (click)="cancelOrder(openOfsItem)">Cancel</button>
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,76 @@
+<div class="ofs-details">
+  <div class="details-header">
+    <button (click)="ofsBtnClick('ongoing')" class="ofs-btn"
+      [ngClass]="{ 'ofs-btn-active': ofsService.ofsActive == 'ongoing' }">OnGoing</button>
+  </div>
+  <div class="details-body">
+    <ng-container [ngSwitch]="ofsService.ofsActive">
+      <div *ngSwitchCase="'ongoing'">
+        <ng-container *ngFor="let openOfsItem of activeOfsList; let i = index">
+          <div class="expandable-card">
+            <div class="expandable-card-header">
+              <div class="exp-header-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+                  alt="">
+              </div>
+              <div class="ofs-name-date">
+                <span class="ofs-name">
+                  {{openOfsItem.name}}
+                </span>
+
+              </div>
+              <div class="header-right">
+                <button class="apply-btn" (click)="applyOfs(openOfsItem)">
+                  Apply
+                </button>
+
+
+              </div>
+            </div>
+            <div class="expandable-card-body">
+
+              <div class="ofs-info-container">
+                <div class="ofs-info-item">
+                  <span class="ofs-info-label">Offer Price</span>
+                  <span class="ofs-info-value">
+                    ₹ {{openOfsItem.offerprice | number: '1.0-0'}}
+
+                  </span>
+                </div>
+
+                <div class="ofs-info-item">
+                  <span class="ofs-info-label">Type</span>
+                  <span class="ofs-info-value">
+                    {{openOfsItem.type}}
+                  </span>
+                </div>
+
+                <div class="ofs-info-item">
+                  <span class="ofs-info-label">Issue Size</span>
+                  <span class="ofs-info-value">
+                    ₹ {{openOfsItem.issuesize}}
+                  </span>
+                </div>
+
+                <div class="ofs-info-item">
+                  <span class="ofs-info-label">Opening Date</span>
+                  <span class="ofs-info-value">
+                    <!-- {{openOfsItem.opendatetime | date:"d MMM, y"}} -->
+                  </span>
+                </div>
+
+                <div class="ofs-info-item">
+                  <span class="ofs-info-label">Closing Date</span>
+                  <span class="ofs-info-value">
+                    <!-- {{openOfsItem.closedatetime | date:"d MMM, y"}} -->
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

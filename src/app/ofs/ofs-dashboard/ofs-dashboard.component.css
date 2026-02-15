@@ -1,0 +1,53 @@
+.ofs-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+}
+
+.ofs-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.ofs-header button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    color: #717680;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    font-weight: 600;
+
+}
+
+.ofs-header button:hover {
+    background-color: #f5f5f5;
+    color: #00317A;
+}
+
+.ofs-header button.ofs-header-active {
+    background-color: #f5f5f5;
+    color: #00317A;
+    font-weight: 700;
+}
+
+.ofs-header button:active {
+    background-color: #f5f5f5;
+    color: #00317A;
+}
+
+.ofs-header button:focus {
+    background-color: #f5f5f5;
+    color: #00317A;
+}
+
+.ofs-body {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: .2rem;
+}

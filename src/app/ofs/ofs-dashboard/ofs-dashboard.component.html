@@ -1,0 +1,17 @@
+<div class="ofs-container">
+  <div class="ofs-header">
+    <button (click)="ofsService.ofsHeader = 'ofs'"
+      [class.ofs-header-active]="ofsService.ofsHeader === 'ofs'">OFS</button>
+    <button (click)="ofsService.ofsHeader = 'orderbook'"
+      [class.ofs-header-active]="ofsService.ofsHeader === 'orderbook'">OrderBook</button>
+  </div>
+  <div class="ofs-body">
+    <ng-container *ngIf="ofsService.ofsHeader === 'ofs'; else orderbook">
+
+      <app-ofs-details></app-ofs-details>
+    </ng-container>
+    <ng-template #orderbook>
+      <app-ofs-order-book></app-ofs-order-book>
+    </ng-template>
+  </div>
+</div>

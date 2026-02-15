@@ -1,0 +1,39 @@
+<div class="order-entry-container">
+  <div class="order-entry-header">
+    <div class="back-btn" (click)="goBack()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+    <div class="exp-header-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s" alt="">
+    </div>
+    <div class="ofs-name-date">
+      <span class="ofs-name">
+        {{orderDetails.name}}
+      </span>
+      <span class="ofs-date">
+        <mat-icon>calendar_today</mat-icon>
+
+        <span>{{orderDetails.opendatetime | date:'d MMM'}}</span>
+        <span>{{orderDetails.opendatetime | date:"d MMM, y"}}</span>
+      </span>
+    </div>
+    <div class="header-right"></div>
+  </div>
+
+  <!--  -->
+  <form #bidForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+
+      </div>
+
+    </div>
+
+    <div class="my-4 text-center">
+      <button class="apply-btn" (click)="applyOrder()">
+        {{orderId ? 'Modify' : 'Apply'}}
+      </button>
+    </div>
+  </form>
+
+</div>
