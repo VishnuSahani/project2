@@ -1,0 +1,133 @@
+<div class="orderbook-details">
+  <ng-container *ngFor="let openIpoItem of ipoOrderList; let i = index">
+    <div class="expandable-card">
+      <div class="expandable-card-header">
+        <div class="exp-header-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+            alt="">
+        </div>
+        <div class="ipo-name-date">
+          <span class="ipo-name">
+            {{openIpoItem.name}}
+          </span>
+          <span class="ipo-date">
+            <mat-icon>calendar_today</mat-icon>
+
+            <span>{{openIpoItem.opendatetime | date:'d MMM'}}</span>
+            <span>{{openIpoItem.opendatetime | date:"d MMM, y"}}</span>
+          </span>
+
+          <div class="alloted-status"
+            [ngClass]="openIpoItem.status == 'Not Alloted' ? 'not-alloted' : (openIpoItem.status == 'Alloted' ? 'alloted' : 'pending')">
+            {{openIpoItem.status}}
+          </div>
+        </div>
+        <div class="header-right">
+          <div role="button" (click)="iopExpend(i)">
+            <mat-icon>{{expendedIndex == i ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</mat-icon>
+          </div>
+
+        </div>
+      </div>
+      <div class="expandable-card-body">
+        <!-- [class.expanded]="expendedIndex == i" future used -->
+        <div class="ipo-info-container">
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Invested</span>
+            <span class="ipo-info-value">
+              ₹ {{openIpoItem.minvalue | number: '1.0-0'}} /
+              {{openIpoItem.tradinglot | number: '1.0-0'}} Shares
+
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Total Investment</span>
+            <span class="ipo-info-value">
+              ₹ {{openIpoItem.floorprice | number: '1.0-0'}}
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Application ID</span>
+            <span class="ipo-info-value">
+              <!-- ₹ {{openIpoItem.applicationID}}-->
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Date & Time</span>
+            <span class="ipo-info-value">
+              <!-- ₹ {{openIpoItem.maxvalue}} -->
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Category</span>
+            <span class="ipo-info-value">
+              <!-- ₹ {{openIpoItem.maxvalue}} -->
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">Application Status
+              <mat-icon class="info-icon">info_outline</mat-icon>
+            </span>
+            <span class="ipo-info-value">
+              <span class="application-status"
+                [ngClass]="openIpoItem.applicationStatus == 'Rejected' ? 'rejected' : (openIpoItem.applicationStatus == 'Completed' ? 'completed' : 'pending')">
+                {{openIpoItem.applicationStatus}}
+              </span>
+            </span>
+          </div>
+
+          <div class="ipo-info-item">
+            <span class="ipo-info-label">
+              <button class="btn-modify" (click)="modifyOrder(openIpoItem)">Modify</button>
+              <button class="btn-cancel" (click)="cancelOrder(openIpoItem)">Cancel</button>
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- bid details -->
+        <div class="bid-container">
+          <div class="bid-details">
+            <span class="bid-label">Bid 1 -</span>
+            <div class="shares-qty">
+              <span>Shares :</span>
+              <span class="font-bold text-dark">15</span>
+            </div>|
+            <div class="price">
+              <span>Price :</span>
+              <span class="font-bold text-dark">₹ 100</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4" *ngIf="expendedIndex === i">
+          <div class="time-line">Timeline</div>
+          <div class="ipoStepArea">
+            <div class="ipoStepAreainner">
+              <ng-container *ngFor="let item of timeLineList">
+                <div class="ipoStepBlock" [class.active]="item.status == 'active'">
+                  <div class="ipoStepBlockinner">
+                    <span class="tickCircle"></span>
+                    <div class="ipoStepContent">
+                      <h4 class="font-14"> {{item.title}} </h4>
+                      <p class="font-14"> {{item.date}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </ng-container>
+</div>

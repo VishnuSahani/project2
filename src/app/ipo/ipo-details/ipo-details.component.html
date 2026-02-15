@@ -1,0 +1,426 @@
+<div class="ipo-details">
+  <div class="details-header">
+    <button (click)="ipoBtnClick('ongoing')" class="ipo-btn"
+      [ngClass]="{ 'ipo-btn-active': phillipsService.ipoActive === 'ongoing' }">OnGoing</button>
+    <button (click)="ipoBtnClick('upcoming')" class="ipo-btn"
+      [ngClass]="{ 'ipo-btn-active': phillipsService.ipoActive === 'upcoming' }">Upcoming</button>
+    <button (click)="ipoBtnClick('closed')" class="ipo-btn"
+      [ngClass]="{ 'ipo-btn-active': phillipsService.ipoActive === 'closed' }">Closed</button>
+  </div>
+  <div class="details-body">
+    <ng-container [ngSwitch]="phillipsService.ipoActive">
+      <div *ngSwitchCase="'ongoing'">
+        <ng-container *ngFor="let openIpoItem of activeIpoList; let i = index">
+          <div class="expandable-card">
+            <div class="expandable-card-header">
+              <div class="exp-header-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+                  alt="">
+              </div>
+              <div class="ipo-name-date">
+                <span class="ipo-name">
+                  {{openIpoItem.name}}
+                </span>
+                <span class="ipo-date">
+                  <mat-icon>calendar_today</mat-icon>
+
+                  <span>{{openIpoItem.opendatetime | date:'d MMM'}}</span>
+                  <span>{{openIpoItem.opendatetime | date:"d MMM, y"}}</span>
+                </span>
+              </div>
+              <div class="header-right">
+                <button class="apply-btn" (click)="applyIPO(openIpoItem)">
+                  Apply
+                </button>
+
+                <div role="button" (click)="iopExpend(i)">
+                  <mat-icon>{{expendedIndex == i ? "keyboard_arrow_up" :
+                    "keyboard_arrow_down"}}</mat-icon>
+                </div>
+
+              </div>
+            </div>
+            <div class="expandable-card-body">
+
+              <div class="ipo-info-container">
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Min. Investment</span>
+                  <span class="ipo-info-value">
+                    ₹ {{openIpoItem.minvalue | number: '1.0-0'}} /
+                    {{openIpoItem.tradinglot | number: '1.0-0'}} Shares
+
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Price Band</span>
+                  <span class="ipo-info-value">
+                    ₹ {{openIpoItem.floorprice | number: '1.0-0'}} -
+                    ₹ {{openIpoItem.cuttoff | number: '1.0-0'}}
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Issue Size</span>
+                  <span class="ipo-info-value">
+                    <!-- ₹ {{openIpoItem.minvalue}} -
+                                        ₹ {{openIpoItem.maxvalue}} -->
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Fresh Issue</span>
+                  <span class="ipo-info-value">
+                    <!-- ₹ {{openIpoItem.maxvalue}} -->
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Offer for Sale</span>
+                  <span class="ipo-info-value">
+                    <!-- ₹ {{openIpoItem.maxvalue}} -->
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Listing At</span>
+                  <span class="ipo-info-value">
+                    {{openIpoItem.exch}}
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Issue Type</span>
+                  <span class="ipo-info-value">
+                    {{openIpoItem.issuetype}}
+                  </span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Registrar</span>
+                  <span class="ipo-info-value">
+                    <!-- {{openIpoItem.issuetype}} -->
+                  </span>
+                </div>
+
+              </div>
+              <ng-container *ngIf="expendedIndex === i">
+                <div class="time-line">Timeline</div>
+                <div class="ipoStepArea">
+                  <div class="ipoStepAreainner">
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Open Date </h4>
+                          <p class="font-14"> 04 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Close Date </h4>
+                          <p class="font-14"> 06 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Allotment Date
+                          </h4>
+                          <p class="font-14"> 09 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Refund Date </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Transfer to Demat
+                            A/c </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Listing on
+                            Exchange </h4>
+                          <p class="font-14"> 11 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div *ngSwitchCase="'upcoming'">
+        <div class="on-comming-title">
+          Note: Your IPO pre-apply order will be placed today. However, payment request will be generated only
+          after the IPO opens for subscription.
+        </div>
+
+        <ng-container *ngFor="let item of upcomingIpoList; let i = index">
+          <div class="expandable-card">
+            <div class="expandable-card-header">
+              <div class="exp-header-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+                  alt="">
+              </div>
+              <div class="ipo-name-date">
+                <span class="ipo-name">
+                  Wakefit Innovations Limited
+                </span>
+                <span class="ipo-date">
+                  <mat-icon>calendar_today</mat-icon>
+
+                  08 Dec - 10 Dec 25
+                </span>
+              </div>
+              <div class="header-right">
+                <button class="apply-btn">
+                  Pre - Apply
+                </button>
+
+                <div role="button" (click)="iopExpend(i)">
+                  <mat-icon>{{expendedIndex == i ? "keyboard_arrow_up" :
+                    "keyboard_arrow_down"}}</mat-icon>
+                </div>
+
+              </div>
+            </div>
+            <div class="expandable-card-body">
+
+              <div class="ipo-info-container">
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Min. Investment</span>
+                  <span class="ipo-info-value">1,000 Cr</span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Price Band</span>
+                  <span class="ipo-info-value">1,000 Cr</span>
+                </div>
+
+              </div>
+              <ng-container *ngIf="expendedIndex === i">
+                <div class="time-line">Timeline</div>
+                <div class="ipoStepArea">
+                  <div class="ipoStepAreainner">
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Open Date </h4>
+                          <p class="font-14"> 04 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Close Date </h4>
+                          <p class="font-14"> 06 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Allotment Date
+                          </h4>
+                          <p class="font-14"> 09 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Refund Date </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Transfer to Demat
+                            A/c </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Listing on
+                            Exchange </h4>
+                          <p class="font-14"> 11 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div *ngSwitchCase="'closed'">
+        <ng-container *ngFor="let item of closedIpoList; let i = index">
+          <div class="expandable-card">
+            <div class="expandable-card-header">
+              <div class="exp-header-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+                  alt="">
+              </div>
+              <div class="ipo-name-date">
+                <span class="ipo-name">
+                  Wakefit Innovations Limited
+                </span>
+                <span class="ipo-date">
+                  <mat-icon>calendar_today</mat-icon>
+
+                  08 Dec - 10 Dec 25
+                </span>
+              </div>
+              <div class="header-right">
+                <div role="button" (click)="iopExpend(i)">
+                  <mat-icon>{{expendedIndex == i ? "keyboard_arrow_up" :
+                    "keyboard_arrow_down"}}</mat-icon>
+                </div>
+
+              </div>
+            </div>
+            <div class="expandable-card-body">
+
+              <div class="ipo-info-container">
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Min. Investment</span>
+                  <span class="ipo-info-value">1,000 Cr</span>
+                </div>
+
+                <div class="ipo-info-item">
+                  <span class="ipo-info-label">Price Band</span>
+                  <span class="ipo-info-value">1,000 Cr</span>
+                </div>
+
+              </div>
+              <ng-container *ngIf="expendedIndex === i">
+                <div class="time-line">Timeline</div>
+                <div class="ipoStepArea">
+                  <div class="ipoStepAreainner">
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Open Date </h4>
+                          <p class="font-14"> 04 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Close Date </h4>
+                          <p class="font-14"> 06 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Allotment Date
+                          </h4>
+                          <p class="font-14"> 09 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock active">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Refund Date </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Transfer to Demat
+                            A/c </h4>
+                          <p class="font-14"> 10 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ipoStepBlock">
+                      <div class="ipoStepBlockinner">
+                        <span class="tickCircle"></span>
+                        <div class="ipoStepContent">
+                          <h4 class="font-14"> Listing on
+                            Exchange </h4>
+                          <p class="font-14"> 11 Feb 26
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,232 @@
+<div class="order-entry-container">
+  <div class="order-entry-header">
+    <div class="back-btn" (click)="goBack()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+    <div class="exp-header-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s" alt="">
+    </div>
+    <div class="ipo-name-date">
+      <span class="ipo-name">
+        {{orderDetails.name}}
+      </span>
+      <span class="ipo-date">
+        <mat-icon>calendar_today</mat-icon>
+
+        <span>{{orderDetails.opendatetime | date:'d MMM'}}</span>
+        <span>{{orderDetails.opendatetime | date:"d MMM, y"}}</span>
+      </span>
+    </div>
+    <div class="header-right"></div>
+  </div>
+
+  <!--  -->
+  <form #bidForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="order-card">
+          <div class="bid-label">
+            Bid 1
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Share (Lot 1)</label>
+                <input type="text" class="form-control" [(ngModel)]="lot1" name="lot1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Price</label>
+                <input type="text" class="form-control" [(ngModel)]="rate1" name="rate1">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="maxAllowedQty" [(ngModel)]="maxAllowedQty1" name="maxAllowedQty1">
+                <label class="form-label-checkbox" for="maxAllowedQty">Max Allowed Qty</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="cutOffPrice" [(ngModel)]="cutoffflag1" name="cutoffflag1">
+                <label class="form-label-checkbox" for="cutOffPrice">Cut Off Price</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Total Amount </label>
+                <input type="text" class="form-control" [(ngModel)]="totalAmount1" name="totalAmount1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="order-card">
+          <div class="bid-label">
+            Bid 2
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Share (Lot 1)</label>
+                <input type="text" class="form-control" [(ngModel)]="lot2" name="lot2">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Price</label>
+                <input type="text" class="form-control" [(ngModel)]="rate2" name="rate2">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="maxAllowedQty2" [(ngModel)]="maxAllowedQty2" name="maxAllowedQty2">
+                <label class="form-label-checkbox" for="maxAllowedQty2">Max Allowed Qty</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="cutoffflag2" [(ngModel)]="cutoffflag2" name="cutoffflag2">
+                <label class="form-label-checkbox" for="cutoffflag2">Cut Off Price</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Total Amount </label>
+                <input type="text" class="form-control" [(ngModel)]="totalAmount2" name="totalAmount2">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="order-card">
+          <div class="bid-label">
+            Bid 3
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Share (Lot 1)</label>
+                <input type="text" class="form-control" [(ngModel)]="lot3" name="lot3">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Price</label>
+                <input type="text" class="form-control" [(ngModel)]="rate3" name="rate3">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="maxAllowedQty3" [(ngModel)]="maxAllowedQty3" name="maxAllowedQty3">
+                <label class="form-label-checkbox" for="maxAllowedQty3">Max Allowed Qty</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group d-flex align-items-center">
+                <input type="checkbox" class="" id="cutoffflag3" [(ngModel)]="cutoffflag3" name="cutoffflag3">
+                <label class="form-label-checkbox" for="cutoffflag3">Cut Off Price</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="">Total Amount </label>
+                <input type="text" class="form-control" [(ngModel)]="totalAmount3" name="totalAmount3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label class="form-label" for="">
+            Apply As
+          </label>
+
+          <div class="input-group">
+            <select class="form-control" name="applyAs" [(ngModel)]="applyAs" id="applyAs">
+              <option value="Individual-HNI">
+                Individual-HNI
+              </option>
+              <option value="Institution">
+                Institution
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label class="form-label" for="">UPI ID <small class="upi-example"> (Eg.
+              abcd@okhdfcbank)
+            </small>
+          </label>
+          <div class="input-group">
+            <input type="text" class="form-control w-70" [(ngModel)]="upiId" name="upiId">
+            <select class="form-select text-upi w-30" [(ngModel)]="upiIdName" name="upiIdName" id="upiIdName">
+              <option value="@abfspay">@abfspay</option>
+              <option value="@okaxis">@okaxis</option>
+              <option value="@okhdfcbank">@okhdfcbank</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="order-text">
+      Order above ₹2 lakh falls under the NIB category and cannot be modified or cancelled
+    </div>
+
+    <div class="my-4 text-center">
+      <button class="apply-btn" (click)="applyOrder()">
+        {{orderId ? 'Modify' : 'Apply'}}
+      </button>
+    </div>
+  </form>
+
+  <div class="ipo-note">
+    <h5 class="mb-3">
+      Note :
+    </h5>
+    <p>
+      1. Enter UPI ID & validate it using the “VERIFY UPI ID” button.
+
+    </p>
+
+    <p>
+      2. Once validated, click on 'Submit' to place your order. Next, check for payment approval request (for
+      blocking funds) on your chosen UPI App. Authorize the payment for successful bidding.
+    </p>
+
+    <p>
+      3. For retail applications, payment up to ₹5 Lakh can be made via UPI. For payment from ₹5 Lakh to ₹15 Lakh,
+      ASBA is mandatory
+    </p>
+    <p>
+      4. With ASBA or Application Supported by Blocked Amount, application amount is blocked in your bank account
+      to process your IPO application. To register for ASBA, login to your net banking portal and add m.Stock's DP
+      account as a beneficiary post which you can place your IPO order.
+    </p>
+    <p>
+
+      5. For non-retail applications, payment above ₹5 Lakh must be compulsorily through ASBA.
+    </p>
+
+  </div>
+
+</div>

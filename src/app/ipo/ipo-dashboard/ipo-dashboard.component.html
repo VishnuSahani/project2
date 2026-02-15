@@ -1,0 +1,17 @@
+<div class="ipo-container">
+  <div class="ipo-header">
+    <button (click)="phillipsService.ipoHeader = 'ipo'"
+      [class.ipo-header-active]="phillipsService.ipoHeader === 'ipo'">IPO</button>
+    <button (click)="phillipsService.ipoHeader = 'orderbook'"
+      [class.ipo-header-active]="phillipsService.ipoHeader === 'orderbook'">OrderBook</button>
+  </div>
+  <div class="ipo-body">
+    <ng-container *ngIf="phillipsService.ipoHeader === 'ipo'; else orderbook">
+
+      <app-ipo-details></app-ipo-details>
+    </ng-container>
+    <ng-template #orderbook>
+      <app-ipo-order-book></app-ipo-order-book>
+    </ng-template>
+  </div>
+</div>

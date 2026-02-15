@@ -1,0 +1,169 @@
+.order-entry-container {
+    padding: 1rem;
+}
+
+.order-entry-header {
+    background-color: #E6EAF2;
+    /* color: #00317A; */
+    padding: 0 .7rem;
+    border-bottom: 1px solid #E6EAF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    height: 52px;
+    margin-bottom: 1.8rem;
+}
+
+.back-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exp-header-img {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+
+}
+
+.exp-header-img img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ipo-name-date {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+}
+
+.ipo-name {
+    font-size: 1rem;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.ipo-date {
+    font-size: 0.75rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/*  */
+
+.order-card {
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 20px;
+    border: 1px solid #D5D7DA;
+    margin: .3rem;
+}
+
+.bid-label {
+    font-size: 1rem;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.form-label {
+    font-size: .875rem;
+    font-weight: 500;
+    font-size: medium;
+    color: #717680;
+}
+
+.form-group {
+    margin: .85rem 0;
+}
+
+.form-label-checkbox {
+    font-size: .875rem;
+    font-weight: 500;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    margin: 0 .5rem;
+    color: #717680;
+    cursor: pointer;
+}
+
+.upi-example {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+
+.text-upi {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #6c757d;
+    border-color: #ced4da;
+}
+
+.order-text {
+    font-size: 1rem;
+    font-weight: 400;
+    font-size: medium;
+    color: red;
+    padding: 1rem;
+}
+
+
+.apply-btn {
+    /* padding: 0.5rem 1rem; */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 38px;
+    width: 129px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #0073E6;
+    transition: all 0.3s ease;
+}
+
+.ipo-note {
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 20px;
+    border: 1px solid #D5D7DA;
+    margin: 1rem .3rem;
+}
+
+.ipo-note h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.ipo-note p {
+    font-size: 1rem;
+    font-weight: 400;
+
+}
+
+.form-select {
+    border-color: #ced4da;
+}
