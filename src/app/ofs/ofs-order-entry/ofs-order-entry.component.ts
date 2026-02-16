@@ -14,6 +14,16 @@ export class OfsOrderEntryComponent implements OnInit {
 
   orderDetails: any = null;
   orderId?: any;
+  // form fields
+  quantity: number = 0;
+  eligibleShares: string = "Eligible Shares: 30";
+  price: number = 0;
+  offerPrice: string = "Offer Price: 60000";
+  orderType: string = 'Non-Retailer';
+  totalAmount: number = 0;
+  isCutOffPrice: boolean = true;
+  marginAvailable: number = 0;
+
 
   constructor(
     private ofsService: OfsService,
@@ -31,6 +41,26 @@ export class OfsOrderEntryComponent implements OnInit {
     this.orderDetails = this.ofsService.ofsOrderData;
     if (!this.orderDetails) {
       this.router.navigate(['ofs'])
+    }
+  }
+
+  increaseQuantity() {
+    this.quantity++;
+  }
+
+  decreaseQuantity() {
+    if (this.quantity > 0) {
+      this.quantity--;
+    }
+  }
+
+  increasePrice() {
+    this.price++;
+  }
+
+  decreasePrice() {
+    if (this.price > 0) {
+      this.price--;
     }
   }
 
@@ -55,7 +85,7 @@ export class OfsOrderEntryComponent implements OnInit {
     let dialogData: DialogData = {
       title: 'Info',
       message: '',
-      image: '',
+      image: '/assets/img/order-img.png',
       type: 'info'
     }
 

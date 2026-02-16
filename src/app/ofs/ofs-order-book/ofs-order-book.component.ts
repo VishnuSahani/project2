@@ -21,12 +21,12 @@ export class OfsOrderBookComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(title: string, message: string, type: 'action' | 'info'): Promise<any> {
+  openDialog(title: string, message: string, type: 'action' | 'info', image: string = ''): Promise<any> {
     return new Promise((resolve, reject) => {
       const dialogData: DialogData = {
         title: title,
         message: message,
-        image: '',
+        image: image,
         type: type
       };
       const dialogRef = this.dialog.open(DialogConfirmComponent, {

@@ -82,7 +82,7 @@ export class IpoOrderEntryComponent implements OnInit {
     let dialogData: DialogData = {
       title: 'Info',
       message: '',
-      image: '',
+      image: '/assets/img/order-img.png',
       type: 'info'
     }
 

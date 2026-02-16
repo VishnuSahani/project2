@@ -1,14 +1,7 @@
 <div class="dialog-confirm">
   <div mat-dialog-content class="dialog-msg">
-    <div>
-      <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="66" height="66" rx="33" fill="#EB4B4B" />
-        <rect x="4" y="4" width="58" height="58" rx="29" stroke="white" stroke-opacity="0.25" stroke-width="8" />
-        <line x1="26.6173" y1="27.2012" x2="39.203" y2="39.7869" stroke="white" stroke-width="2"
-          stroke-linecap="round" />
-        <line x1="39.2031" y1="26.6164" x2="26.6174" y2="39.2021" stroke="white" stroke-width="2"
-          stroke-linecap="round" />
-      </svg>
+    <div class="dialog-img" *ngIf="data.image">
+      <img class="img-fluid" height="85px" width="65px" loading="lazy" [src]="data.image" alt="">
     </div>
 
     {{data.message}}

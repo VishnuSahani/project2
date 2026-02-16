@@ -70,6 +70,17 @@
     margin: .3rem;
 }
 
+.info-icon {
+    font-size: 1rem;
+    cursor: pointer;
+    color: #6b6b6b;
+    font-weight: 500;
+}
+
+.text-gray {
+    background-color: #E6EAF2;
+    color: #00317A;
+}
 
 .apply-btn {
     /* padding: 0.5rem 1rem; */
