@@ -151,7 +151,7 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <div class="form-group">
+        <div class="form-group mx-4">
           <label class="form-label" for="">
             Apply As
           </label>
@@ -177,9 +177,9 @@
           <div class="input-group">
             <input type="text" class="form-control w-70" [(ngModel)]="upiId" name="upiId">
             <select class="form-select text-upi w-30" [(ngModel)]="upiIdName" name="upiIdName" id="upiIdName">
-              <option value="@abfspay">@abfspay</option>
-              <option value="@okaxis">@okaxis</option>
-              <option value="@okhdfcbank">@okhdfcbank</option>
+              <ng-container *ngFor="let upi of upiIdNameList;">
+                <option [value]="upi">{{upi}}</option>
+              </ng-container>
             </select>
           </div>
         </div>

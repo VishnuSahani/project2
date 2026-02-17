@@ -1,0 +1,287 @@
+.orderbook-details {
+    /* border: 1px solid #D9D7D7; */
+    height: 100%;
+    overflow: hidden;
+}
+
+/* expandable card start */
+.expandable-card {
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+    transition: all .7s ease;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.expandable-card-header {
+    background-color: #E6EAF2;
+    /* color: #00317A; */
+    padding: 0 .7rem;
+    border-bottom: 1px solid #E6EAF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    height: 52px;
+}
+
+.exp-header-img {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+
+}
+
+.exp-header-img img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.debt-name-date {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+}
+
+.debt-name {
+    font-size: 1rem;
+    font-weight: 500;
+    font-size: medium;
+}
+
+
+.alloted-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    border: 1px solid;
+}
+
+.alloted-status.not-alloted {
+    background-color: #FFD9D9;
+    color: #D92D20;
+    border-color: #D92D20;
+}
+
+.alloted-status.alloted {
+    background-color: #D1FADF;
+    color: #03703C;
+    border-color: #03703C;
+}
+
+.alloted-status.pending {
+    background-color: #f9fad1;
+    color: #c4a912;
+    border-color: #c4a912;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.expandable-card-body {
+    padding: 1rem;
+    transition: all .7s ease;
+
+}
+
+.debt-info-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-radius: 4px;
+    justify-content: stretch;
+}
+
+.debt-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 160px;
+    background-color: #fff;
+}
+
+.debt-info-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #A4A7AE;
+    text-align: center;
+}
+
+.debt-info-value {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #181D27;
+    text-align: center;
+}
+
+.btn-modify,
+.btn-cancel {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    border: 1px solid;
+    cursor: pointer;
+    margin: 0 0.35rem;
+}
+
+.btn-modify {
+    background-color: #D1FADF;
+    color: #03703C;
+    border-color: #03703C;
+}
+
+.btn-cancel {
+    background-color: #FFD9D9;
+    color: #D92D20;
+    border-color: #D92D20;
+}
+
+
+/* card end */
+
+
+/* timeline start */
+.time-line {
+    font-size: 1.12rem;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.ipoStepArea {
+    margin: 20px 0;
+}
+
+.ipoStepAreainner {
+    display: flex;
+    margin: 0 -8px;
+}
+
+.ipoStepAreainner .ipoStepBlock {
+    padding: 0 8px;
+    width: 25%;
+    position: relative;
+}
+
+.ipoStepBlockinner {
+    padding-top: 35px;
+    text-align: center;
+}
+
+.ipoStepAreainner .ipoStepBlock.active .tickCircle {
+    background-image: url("/assets/img/active_check-circle-rounded.svg");
+}
+
+.ipoStepContent {
+    position: relative;
+}
+
+.ipoStepAreainner .ipoStepBlock:not(:first-child):after {
+    position: absolute;
+    top: 15px;
+    left: calc(-50% - 6.5px);
+    transition-property: all;
+    transition-duration: .15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    display: block;
+    width: 100%;
+    height: 2px;
+    content: "";
+    /* border-top: 3px dashed #d2d2d2; */
+    border-top: 3px solid #d2d2d2;
+    z-index: 1;
+}
+
+.ipoStepAreainner .ipoStepBlock.active:not(:first-child):after {
+    /* border-top: 3px dashed #01AE80; */
+    border-top: 3px solid #3da23f;
+}
+
+.ipoStepAreainner .ipoStepBlock .tickCircle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 30px;
+    height: 30px;
+    content: "";
+    transform: translate(-50%);
+    transition: all .15s linear 0s, transform .15s cubic-bezier(.05, 1.09, .16, 1.4) 0s;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 2;
+    background-image: url("/assets/img/inactive_check-circle-rounded.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+/* media query */
+
+/* Mobile styles for screens ≤ 575px */
+/* @media (max-width: 575px) { */
+@media (max-width: 768px) {
+    .ipoStepArea {
+        margin: 0 15px;
+    }
+
+    .ipoStepAreainner {
+        display: block;
+    }
+
+    .ipoStepAreainner .ipoStepBlock {
+        padding: 0 8px 10px;
+        width: 100%;
+    }
+
+    .ipoStepBlockinner {
+        padding-top: 0;
+        text-align: left;
+        display: flex;
+        padding-left: 40px;
+    }
+
+    .ipoStepAreainner .ipoStepBlock .tickCircle {
+        position: absolute;
+        top: 0;
+        left: 2px;
+        width: 25px;
+        height: 25px;
+        transform: translate(0);
+    }
+
+    .ipoStepAreainner .ipoStepBlock:not(:first-child):after {
+        position: absolute;
+        top: -45px;
+        left: 13px;
+        width: 2px;
+        height: 100%;
+        content: "";
+        border-right: 3px solid #d2d2d2;
+    }
+
+    .ipoStepAreainner .ipoStepBlock.active:not(:first-child):after {
+        border-right: 3px solid #3da23f;
+    }
+}
+
+/* time line end */

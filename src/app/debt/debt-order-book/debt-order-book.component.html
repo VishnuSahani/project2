@@ -1,0 +1,96 @@
+<div class="orderbook-details">
+  <ng-container *ngFor="let opendebtItem of debtOrderList; let i = index">
+    <div class="expandable-card">
+      <div class="expandable-card-header">
+        <div class="exp-header-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+            alt="">
+        </div>
+        <div class="debt-name-date">
+          <span class="debt-name">
+            {{opendebtItem.name}}
+          </span>
+
+          <div class="alloted-status"
+            [ngClass]="opendebtItem.status == 'Not Alloted' ? 'not-alloted' : (opendebtItem.status == 'Alloted' ? 'alloted' : 'pending')">
+            {{opendebtItem.status}}
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div role="button" (click)="iopExpend(i)">
+            <mat-icon>{{expendedIndex == i ? "keyboard_arrow_up" : "keyboard_arrow_down"}}</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="expandable-card-body">
+        <div class="debt-info-container">
+          <div class="debt-info-item">
+            <span class="debt-info-label">Bid ID</span>
+            <span class="debt-info-value">
+              {{opendebtItem.bidId}}
+            </span>
+          </div>
+
+          <div class="debt-info-item">
+            <span class="debt-info-label">Qty</span>
+            <span class="debt-info-value">
+              <!-- {{opendebtItem.qty | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="debt-info-item">
+            <span class="debt-info-label">Price</span>
+            <span class="debt-info-value">
+              <!-- {{opendebtItem.price | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="debt-info-item">
+            <span class="debt-info-label">Value</span>
+            <span class="debt-info-value">
+              <!-- ₹ {{opendebtItem.value | number: '1.0-0'}} -->
+            </span>
+          </div>
+
+          <div class="debt-info-item">
+            <span class="debt-info-label">UPI ID</span>
+            <span class="debt-info-value">
+              {{opendebtItem.upiId}}
+            </span>
+          </div>
+
+          <div class="debt-info-item">
+            <span class="debt-info-label">
+              <button class="btn-modify" (click)="modifyOrder(opendebtItem)">Modify</button>
+              <button class="btn-cancel" (click)="cancelOrder(opendebtItem)">Cancel</button>
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- expended -->
+        <div class="mt-4" *ngIf="expendedIndex === i">
+          <div class="time-line">Timeline</div>
+          <div class="ipoStepArea">
+            <div class="ipoStepAreainner">
+              <ng-container *ngFor="let item of timeLineList">
+                <div class="ipoStepBlock" [class.active]="item.status == 'active'">
+                  <div class="ipoStepBlockinner">
+                    <span class="tickCircle"></span>
+                    <div class="ipoStepContent">
+                      <h4 class="font-14"> {{item.title}} </h4>
+                      <p class="font-14"> {{item.date}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

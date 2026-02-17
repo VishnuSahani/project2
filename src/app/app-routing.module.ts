@@ -19,6 +19,14 @@ const routes: Routes = [
     loadChildren: () => import('./debt/debt.module').then(m => m.DebtModule)
   },
   {
+    path: 'research',
+    loadChildren: () => import('./research/research.module').then(m => m.ResearchModule)
+  },
+  {
+    path: 'thematic-basket',
+    loadChildren: () => import('./thematic-basket/thematic-basket.module').then(m => m.ThematicBasketModule)
+  },
+  {
     path: '',
     redirectTo: 'ipo',
     pathMatch: 'full'

@@ -1,0 +1,83 @@
+<div class="debt-details">
+  <div class="details-header">
+    <button (click)="debtBtnClick('ongoing')" class="debt-btn"
+      [ngClass]="{ 'debt-btn-active': debtService.debtActive == 'ongoing' }">OnGoing</button>
+  </div>
+  <div class="details-body">
+    <ng-container [ngSwitch]="debtService.debtActive">
+      <div *ngSwitchCase="'ongoing'">
+        <ng-container *ngFor="let opendebtItem of activedebtList; let i = index">
+          <div class="expandable-card">
+            <div class="expandable-card-header">
+              <div class="exp-header-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49mXHakon8p1nLshZmycfASPQFVOqC5OFWA&s"
+                  alt="">
+              </div>
+              <div class="debt-name-date">
+                <span class="debt-name">
+                  {{opendebtItem.name}}
+                </span>
+
+              </div>
+              <div class="header-right">
+                <button class="apply-btn" (click)="applydebt(opendebtItem)">
+                  Apply
+                </button>
+
+
+              </div>
+            </div>
+            <div class="expandable-card-body">
+
+              <div class="debt-info-container">
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Min. Value</span>
+                  <span class="debt-info-value">
+                    ₹ {{opendebtItem.offerprice | number: '1.0-0'}}
+
+                  </span>
+                </div>
+
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Min. Bid Qty</span>
+                  <span class="debt-info-value">
+                    {{opendebtItem.type}}
+                  </span>
+                </div>
+
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Issue Size</span>
+                  <span class="debt-info-value">
+                    ₹ {{opendebtItem.issuesize}}
+                  </span>
+                </div>
+
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Max. Value</span>
+                  <span class="debt-info-value">
+                    <!-- {{opendebtItem.opendatetime | date:"d MMM, y"}} -->
+                  </span>
+                </div>
+
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Opening Date</span>
+                  <span class="debt-info-value">
+                    <!-- {{opendebtItem.closedatetime | date:"d MMM, y"}} -->
+                  </span>
+                </div>
+
+                <div class="debt-info-item">
+                  <span class="debt-info-label">Closing Date</span>
+                  <span class="debt-info-value">
+                    <!-- {{opendebtItem.closedatetime | date:"d MMM, y"}} -->
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -34,6 +34,11 @@ export class IpoOrderEntryComponent implements OnInit {
 
   upiId?: string;
   upiIdName?: string;
+  upiIdNameList: string[] = [
+    "@abfspay",
+    "@okaxis",
+    "@okhdfcbank"
+  ];
 
   orderDetails: any = null;
   orderId?: any;
@@ -55,6 +60,7 @@ export class IpoOrderEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderDetails = this.phillipsService.ipoOrderData;
+    this.upiIdName = this.upiIdNameList[0];
     if (!this.orderDetails) {
       this.router.navigate(['ipo'])
     }

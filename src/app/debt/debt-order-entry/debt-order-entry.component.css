@@ -38,7 +38,7 @@
     border-radius: 50%;
 }
 
-.ipo-name-date {
+.debt-name-date {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -46,20 +46,19 @@
     flex-wrap: wrap;
 }
 
-.ipo-name {
+.debt-name {
     font-size: 1rem;
     font-weight: 500;
     font-size: medium;
 }
 
-.ipo-date {
+.debt-date {
     font-size: 0.75rem;
     font-weight: 400;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-
 
 /*  */
 
@@ -71,68 +70,17 @@
     margin: .3rem;
 }
 
-.bid-label {
+.info-icon {
     font-size: 1rem;
-    font-weight: 500;
-    font-size: medium;
-}
-
-.form-label {
-    font-size: .875rem;
-    font-weight: 500;
-    font-size: medium;
-    color: #717680;
-}
-
-.form-group {
-    margin: .85rem 0;
-}
-
-.form-label-checkbox {
-    font-size: .875rem;
-    font-weight: 500;
-    font-size: medium;
-    display: flex;
-    align-items: center;
-    margin: 0 .5rem;
-    color: #717680;
     cursor: pointer;
+    color: #6b6b6b;
+    font-weight: 500;
 }
 
-.upi-example {
-    font-size: .75rem;
-    font-weight: 400;
-    color: #6c757d;
+.text-gray {
+    background-color: #E6EAF2;
+    color: #00317A;
 }
-
-.w-70 {
-    width: 70%;
-}
-
-.w-30 {
-    width: 30%;
-}
-
-
-.text-upi {
-    font-size: .75rem;
-    font-weight: 400;
-    color: #6c757d;
-    border-color: #ced4da;
-}
-
-.text-upi:focus-visible {
-    outline: unset;
-}
-
-.order-text {
-    font-size: 1rem;
-    font-weight: 400;
-    font-size: medium;
-    color: red;
-    padding: 1rem;
-}
-
 
 .apply-btn {
     /* padding: 0.5rem 1rem; */
@@ -148,26 +96,17 @@
     transition: all 0.3s ease;
 }
 
-.ipo-note {
-    border-radius: 8px;
-    border-width: 1px;
-    padding: 20px;
-    border: 1px solid #D5D7DA;
-    margin: 1rem .3rem;
+.font-12 {
+    font-size: 12px;
 }
 
-.ipo-note h5 {
-    font-size: 1rem;
-    font-weight: 500;
-    font-size: medium;
-}
-
-.ipo-note p {
-    font-size: 1rem;
+.text-upi {
+    font-size: .75rem;
     font-weight: 400;
-
+    color: #6c757d;
+    border-color: #ced4da;
 }
 
-.form-select {
-    border-color: #ced4da;
+.text-upi:focus-visible {
+    outline: unset;
 }

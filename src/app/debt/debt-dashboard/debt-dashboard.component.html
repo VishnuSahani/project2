@@ -1,0 +1,17 @@
+<div class="debt-container">
+  <div class="debt-header">
+    <button (click)="debtService.debtHeader = 'debt'"
+      [class.debt-header-active]="debtService.debtHeader === 'debt'">Debt</button>
+    <button (click)="debtService.debtHeader = 'orderbook'"
+      [class.debt-header-active]="debtService.debtHeader === 'orderbook'">OrderBook</button>
+  </div>
+  <div class="debt-body">
+    <ng-container *ngIf="debtService.debtHeader === 'debt'; else orderbook">
+
+      <app-debt-details></app-debt-details>
+    </ng-container>
+    <ng-template #orderbook>
+      <app-debt-order-book></app-debt-order-book>
+    </ng-template>
+  </div>
+</div>
